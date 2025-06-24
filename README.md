@@ -42,7 +42,11 @@ This repository contains two end-to-end projects demonstrating practical impleme
 ---
 
 ## 📌 How to Use
-
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/ml-projects.git
+   git clone https://github.com/shivigoyal4321/machine-learning.git
+2. Launch notebooks in Jupyter or Google Colab.
+Install required libraries:
+pip install scikit-learn pandas matplotlib seaborn tensorflow keras
+## Shivi Goyal – Machine Learning Enthusiast
+
