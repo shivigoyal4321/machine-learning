@@ -50,3 +50,46 @@ Install required libraries:
 pip install scikit-learn pandas matplotlib seaborn tensorflow keras
 ## Shivi Goyal – Machine Learning Enthusiast
 
+## Deploy Breast Cancer API on Render
+
+This repo now includes a production API for the breast cancer model.
+
+### Files added
+- `train_breast_cancer_model.py` - trains and exports `breast_cancer_model.pkl`
+- `app.py` - Flask API (`/health`, `/schema`, `/predict`)
+- `requirements.txt` - Python dependencies
+- `Procfile` - Render process command
+- `render.yaml` - optional Render Blueprint config
+
+### Local run
+```bash
+python -m pip install -r requirements.txt
+python train_breast_cancer_model.py
+python app.py
+```
+
+### Render setup (Web Service)
+1. Push this repository to GitHub.
+2. In Render, click **New +** -> **Web Service** -> connect your repo.
+3. Use:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn app:app`
+4. Deploy.
+
+### API usage
+- GET `/health`
+- GET `/schema`
+- POST `/predict`
+
+Example request body:
+```json
+{
+  "features": {
+    "mean radius": 14.6,
+    "mean texture": 22.7
+  }
+}
+```
+
+Note: send all required features listed by `/schema`.
+
